@@ -16,4 +16,3 @@ def createTuple(tupleString):
 tuple1 = createTuple(input("Enter tuple 1: "))
 tuple2 = createTuple(input("Enter tuple 2: "))
 print(tuple1, tuple2)
-print(gcd(tuple1[1], tuple1[0]))
