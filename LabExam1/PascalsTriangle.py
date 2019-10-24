@@ -24,13 +24,19 @@ def make_new_row(old_row):
     return new_row
 
 
-height = int(input("Enter desired height of Pascal's Triangle (greater than 0): "))
+def make_triangle(height):
+    row = []
 
-while height < 1:
-    height = int(input("Enter a height greater than 0: "))
+    for i in range(height):
+        row = make_new_row(row)
+        print(row)
 
-row = []
+    return
 
-for i in range(height):
-    row = make_new_row(row)
-    print(row)
+
+input_height = int(input("Enter desired height of Pascal's Triangle (greater than 0): "))
+
+while input_height < 1:
+    input_height = int(input("Enter a height greater than 0: "))
+
+
