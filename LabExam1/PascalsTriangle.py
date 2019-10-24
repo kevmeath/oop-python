@@ -39,4 +39,4 @@ input_height = int(input("Enter desired height of Pascal's Triangle (greater tha
 while input_height < 1:
     input_height = int(input("Enter a height greater than 0: "))
 
-
+make_triangle(input_height)
