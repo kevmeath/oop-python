@@ -43,7 +43,7 @@ def make_new_triangle(height):
 
 input_height = int(input("Enter desired height of Pascal's Triangle (greater than 0): "))
 
-while input_height < 1:  # check if the desired height is at least 1 row
+while input_height < 1 or not isinstance(input_height, int):  # check if the desired height is at least 1 row
     input_height = int(input("Enter a height greater than 0: "))  # prompt for a height of at least 1
 
 triangle = make_new_triangle(input_height)  # make a new triangle of height input_height
