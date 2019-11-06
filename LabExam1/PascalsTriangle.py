@@ -41,12 +41,20 @@ def make_new_triangle(height):
     return new_triangle  # return the complete triangle
 
 
-input_height = int(input("Enter desired height of Pascal's Triangle (greater than 0): "))
+input_height_str = input("Enter desired height of Pascal's Triangle (integer greater than 0): ")  # read height input
 
-while input_height < 1 or not isinstance(input_height, int):  # check if the input is an integer value of at least 1
-    input_height = int(input("Enter a height greater than 0: "))  # prompt for a height of at least 1
+while True:  # repeat until an acceptable value is entered
+    try:
+        input_height_int = int(input_height_str)  # try to convert from string to int
+    except ValueError:  # throw exception if the height is not an integer
+        input_height_str = input("Please enter an integer: ")  # prompt for an integer
+    else:
+        if input_height_int > 0:  # check if the height is greater than 0
+            break  # break from the loop
+        else:
+            input_height_str = input("Please enter an integer greater than 0: ")  # prompt for an integer greater than 0
 
-triangle = make_new_triangle(input_height)  # make a new triangle of height input_height
+triangle = make_new_triangle(input_height_int)  # make a new triangle of height input_height
 
 print("Printing whole list of lists: ")
 print(triangle)  # print the triangle as a list
@@ -55,7 +63,8 @@ print("Printing list of lists, one list at a time: ")
 for i in range(len(triangle)):  # print each row of the triangle individually
     print(triangle[i])
 
-center_width = len(' '.join([str(i) for i in triangle[input_height-1]]))  # use the width of the last row to center
+center_width = len(' '.join([str(i) for i in triangle[input_height_int-1]]))  # use the width of the last row to center
 
+print("Printing as a triangle: ")
 for i in range(len(triangle)):
     print((' '.join([str(i) for i in triangle[i]])).center(center_width))  # print the triangle as a centered triangle
